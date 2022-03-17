@@ -1,0 +1,40 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    druid:
+      datasource1:
+        url: jdbc:mysql://localhost:3306/hy1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+        driverClassName: com.mysql.cj.jdbc.Driver
+      datasource2:
+        url: jdbc:mysql://localhost:3306/hy2?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+        driverClassName: com.mysql.cj.jdbc.Driver
+      #连接池配置
+      initial-size: 5
+      max-active: 100
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 60000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 100000
+
+
+
+
+
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/com/hy/**/*Mapper.xml
